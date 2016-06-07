@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="529.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Ustawienia konta">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="userNameTextField" layoutX="153.0" layoutY="31.0" />
+                        <Label layoutX="41.0" layoutY="35.0" text="Imie i Nazwisko" />
+                        <Label layoutX="41.0" layoutY="79.0" prefWidth="76.0" text="Hasło" />
+                        <Label layoutX="43.0" layoutY="123.0" prefHeight="16.0" prefWidth="76.0" text="Powtórz hasło" />
+                        <PasswordField fx:id="userPasswordTextField" layoutX="153.0" layoutY="75.0" />
+                        <PasswordField fx:id="userPasswordConfirmTextField" layoutX="153.0" layoutY="119.0" />
+                        <Button fx:id="buttonUserSettingsConfirm" layoutX="255.0" layoutY="165.0" mnemonicParsing="false" onAction="#buttonUserSettingsClicked" text="Zapisz" />
+                        <Label fx:id="userLabel" layoutX="43.0" layoutY="304.0" prefHeight="40.0" prefWidth="148.0" text="Label" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Strefa Team Leadera">
+               <content>
+                  <Accordion>
+                    <panes>
+                      <TitledPane animated="false" text="Członkowie">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@main.css">
+                                 <children>
+                                    <Label layoutX="8.0" layoutY="26.0" text="Wybierz zespół" />
+                                    <Button fx:id="confirmTeam" layoutX="302.0" layoutY="22.0" mnemonicParsing="false" onAction="#buttonConfirmTeamClicked" text="Zatwierdź" />
+                                    <Separator layoutX="-14.0" layoutY="57.0" prefHeight="0.0" prefWidth="748.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-182.79999999999995" />
+                                    <ListView fx:id="personListView" layoutX="14.0" layoutY="96.0" prefHeight="198.0" prefWidth="249.0" />
+                                    <Label layoutX="8.0" layoutY="66.0" text="Członkowie" />
+                                    <ChoiceBox fx:id="personChoiceBox" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="209.0" />
+                                    <Button fx:id="deletePerson" layoutX="274.0" layoutY="270.0" mnemonicParsing="false" onAction="#buttonDeletePersonClicked" prefHeight="12.0" prefWidth="10.0" text="-" textFill="RED">
+                                       <font>
+                                          <Font name="Comic Sans MS Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="addPerson" layoutX="237.0" layoutY="303.0" mnemonicParsing="false" onAction="#buttonAddPersonClicked" text="+" textFill="#17ab00" />
+                                    <ChoiceBox fx:id="teamChoiceBox" layoutX="111.0" layoutY="22.0" prefWidth="150.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Projekt">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="101.0" layoutY="32.0" text="Nazwa" />
+                                    <TextField fx:id="projectNameTextField" layoutX="210.0" layoutY="28.0" />
+                                    <ChoiceBox fx:id="teamChoiceBox2" layoutX="209.0" layoutY="76.0" prefWidth="150.0" />
+                                    <Label layoutX="101.0" layoutY="80.0" text="Zespół" />
+                                    <Button fx:id="addProject" layoutX="411.0" layoutY="88.0" mnemonicParsing="false" onAction="#buttonAddProjectClicked" text="Dodaj Projekt" />
+                                    <Separator layoutX="-48.0" layoutY="120.0" prefHeight="15.0" prefWidth="738.0" />
+                                    <Label layoutX="25.0" layoutY="14.0" text="Dodaj">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="25.0" layoutY="148.0" prefWidth="63.0" text="Edytuj">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="103.0" layoutY="148.0" text="Projekt z zespołu" />
+                                    <ChoiceBox fx:id="teamChoiceBox3" layoutX="210.0" layoutY="144.0" prefWidth="150.0" />
+                                    <Button fx:id="loadProjects" layoutX="411.0" layoutY="144.0" mnemonicParsing="false" onAction="#loadProjectsClicked" text="Załaduj" />
+                                    <TextField fx:id="projectNameTextField2" layoutX="103.0" layoutY="238.0" />
+                                    <ChoiceBox fx:id="teamChoiceBox4" layoutX="102.0" layoutY="272.0" prefWidth="150.0" />
+                                    <Label layoutX="26.0" layoutY="242.0" prefWidth="63.0" text="Nazwa" />
+                                    <Label layoutX="26.0" layoutY="276.0" prefHeight="16.0" prefWidth="63.0" text="Nowy zespół" />
+                                    <Label layoutX="25.0" layoutY="201.0" prefWidth="63.0" text="Projekt" />
+                                    <ChoiceBox fx:id="projectChoiceBox" layoutX="101.0" layoutY="197.0" prefWidth="150.0" />
+                                    <Button fx:id="updateProject" layoutX="315.0" layoutY="272.0" mnemonicParsing="false" onAction="#buttonUpdateProjectClicked" text="Zaktualizuj" />
+                                    <Button fx:id="deleteProject" layoutX="413.0" layoutY="272.0" mnemonicParsing="false" onAction="#buttonDeleteProjectClicked" text="Usuń" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+               </content>
+            </Tab>
+          <Tab onSelectionChanged="#adminTabselected" text="Strefa Admina">
+               <content>
+                  <Accordion>
+                    <panes>
+                      <TitledPane animated="false" text="Dodaj Użytkownika">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="userLoginTextField2" layoutX="148.0" layoutY="25.0" prefHeight="27.0" prefWidth="151.0" />
+                                    <TextField fx:id="userPasswordTextField2" layoutX="148.0" layoutY="58.0" />
+                                    <Label layoutX="27.0" layoutY="29.0" text="Nazwa Użytkownika" />
+                                    <Label layoutX="27.0" layoutY="62.0" prefWidth="97.0" text="Hasło" />
+                                    <TextField fx:id="userNameTextField2" layoutX="148.0" layoutY="94.0" />
+                                    <Label layoutX="27.0" layoutY="98.0" prefWidth="97.0" text="Imię i nazwisko" />
+                                    <CheckBox fx:id="isAdminCheckBox" layoutX="148.0" layoutY="136.0" mnemonicParsing="false" text="Administrator" />
+                                    <Button fx:id="addUserButton" layoutX="148.0" layoutY="180.0" mnemonicParsing="false" onAction="#buttonAddUserClicked" text="Dodaj Użytkownika" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Usuń Użytkownika">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView fx:id="personListView2" layoutX="14.0" layoutY="14.0" prefHeight="271.0" prefWidth="286.0" />
+                                    <Button fx:id="deleteUserButton" layoutX="351.0" layoutY="240.0" mnemonicParsing="false" onAction="#buttonDeleteUserClicked" text="Usuń Użytkownika" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Dodaj Zespół">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="37.0" layoutY="26.0" text="Nazwa Zespołu" />
+                                    <ChoiceBox fx:id="teamLeaderChoiceBox" layoutX="150.0" layoutY="54.0" prefWidth="150.0" />
+                                    <Label layoutX="37.0" layoutY="58.0" prefWidth="76.0" text="Team Leader" />
+                                    <TextField fx:id="teamNameTextField" layoutX="150.0" layoutY="22.0" />
+                                    <Button fx:id="addTeamButton" layoutX="411.0" layoutY="233.0" mnemonicParsing="false" onAction="#buttonAddTeamClicked" text="Dodaj Zespół" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                        <TitledPane animated="false" text="Edytuj/Usuń Zespół">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="18.0" layoutY="23.0" prefWidth="63.0" text="Zespół" />
+                                    <ChoiceBox fx:id="teamChoiceBox5" layoutX="115.0" layoutY="19.0" prefWidth="150.0" />
+                                    <Button fx:id="selectionTeamButton" layoutX="340.0" layoutY="19.0" mnemonicParsing="false" onAction="#buttonSelectionTeamClicked" text="Wybierz" />
+                                    <Separator layoutX="-18.0" layoutY="48.0" prefHeight="14.0" prefWidth="762.0" />
+                                    <TextField fx:id="teamNameTextField2" layoutX="115.0" layoutY="75.0" />
+                                    <Label layoutX="18.0" layoutY="79.0" prefWidth="63.0" text="Nazwa" />
+                                    <Label layoutX="20.0" layoutY="118.0" prefWidth="63.0" text="Team Leader" />
+                                    <ChoiceBox fx:id="teamLeaderChoiceBox2" layoutX="115.0" layoutY="114.0" prefWidth="150.0" />
+                                    <Button fx:id="updateTeamButton" layoutX="18.0" layoutY="187.0" mnemonicParsing="false" onAction="#buttonUpdateTeamClicked" text="Zaktualizuj" />
+                                    <Button fx:id="deleteTeamButton" layoutX="448.0" layoutY="187.0" mnemonicParsing="false" onAction="#buttonDeleteTeamClicked" text="Usuń" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                    </panes>
+                  </Accordion>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

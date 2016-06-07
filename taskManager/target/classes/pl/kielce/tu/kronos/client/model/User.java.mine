@@ -1,0 +1,35 @@
+package pl.kielce.tu.kronos.client.model;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.net.UnknownHostException;
+import pl.kielce.tu.kronos.client.tableClasses.Person;
+
+import pl.kielce.tu.kronos.model.Request;
+import pl.kielce.tu.kronos.model.Response;
+
+public class User implements Serializable{
+	private String username;
+	private String password;
+	private boolean loggedIn;
+	
+	public User(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+	
+	public boolean login(){
+		try {
+			ServerConnection server = ServerConnection.getServer();
+			Response response = server.sendRequest(new Request("auth", "GET", new Person(0, this.username, this.password, "", false).JSONExport()));
+			if(response.getCode() == 200){
+//				return ((User)response.getData()).loggedIn;
+			}
+		} catch (IOException e) {
+			return false;
+		}
+		return false;
+	}
+	
+
+}

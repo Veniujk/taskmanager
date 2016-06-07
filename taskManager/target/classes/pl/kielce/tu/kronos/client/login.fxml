@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="260.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kielce.tu.kronos.client.LoginController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="75.0" minWidth="6.0" prefWidth="18.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="59.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="108.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="0.0" prefWidth="5.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="45.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="20.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="0.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="21.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="40.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="44.0" minHeight="24.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="0.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="25.0" prefWidth="69.0" text="LOGIN" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets top="1.0" />
+         </GridPane.margin></Button>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User:" wrappingWidth="58.783203125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="64.009765625" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <PasswordField fx:id="passwordField" prefHeight="25.0" prefWidth="135.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+      <TextField fx:id="usernameField" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+      <TextField fx:id="ipField" prefHeight="25.0" prefWidth="86.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IP/Port:" wrappingWidth="66.9140625" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="portField" prefHeight="25.0" prefWidth="45.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+      <Label fx:id="invalidDataLabel" text="Niepoprawne dane logowania" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+   </children>
+</GridPane>

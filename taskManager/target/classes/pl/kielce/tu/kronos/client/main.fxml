@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.net.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="541.0" minWidth="876.0" prefHeight="697.0" prefWidth="1097.0" styleClass=".myClass{-fx-background-color:white;}" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kielce.tu.kronos.client.MainController">
+   <effect>
+      <ColorAdjust brightness="-0.05" contrast="0.05" />
+   </effect>
+   <stylesheets>
+      <URL value="@main.css" />
+   </stylesheets>
+   <left>
+      <TreeView fx:id="treeView" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" showRoot="false" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <SplitPane fx:id="splitPane" dividerPositions="0.5" minWidth="-Infinity" orientation="VERTICAL" BorderPane.alignment="CENTER">
+        <items>
+            <TableView fx:id="mainTaskTableView" stylesheets="@main.css">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <contextMenu>
+                  <ContextMenu fx:id="contextMainTaskTable">
+                    <items>
+                        <MenuItem fx:id="addTaskContextMenu" mnemonicParsing="false" text="Dodaj zadanie" />
+                        <Menu mnemonicParsing="false" text="Zmień status">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="AKTYWNE" />
+                              <MenuItem mnemonicParsing="false" text="GOTOWE" />
+                              <MenuItem mnemonicParsing="false" text="OCZEKUJE" />
+                              <MenuItem mnemonicParsing="false" text="ZAWIESZONE" />
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#editPersonContextMenu" text="Zmień osobę" />
+                        <MenuItem fx:id="editTaskContextMenu" mnemonicParsing="false" onAction="#editTaskContextMenu" text="Edytuj" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteTaskContextMenu" text="Usuń" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+            <TextArea maxHeight="-Infinity" minHeight="-Infinity" promptText="description of the task" />
+        </items>
+      </SplitPane>
+   </center>
+   <right>
+      <SplitPane dividerPositions="0.6472346786248132" minWidth="-Infinity" orientation="VERTICAL" prefHeight="671.0" prefWidth="292.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane maxWidth="290.0">
+               <children>
+                  <ScrollPane prefViewportHeight="416.0" prefViewportWidth="290.0">
+                     <content>
+                        <VBox fx:id="messageVBox" maxWidth="290.0" prefHeight="332.0" prefWidth="290.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane prefHeight="263.0" prefWidth="290.0">
+               <children>
+                  <TextArea fx:id="textArea" layoutX="9.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="272.0" wrapText="true" />
+                  <Button fx:id="sendButton" layoutX="224.0" layoutY="190.0" mnemonicParsing="false" onAction="#sendButtonClicked" text="Send" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </right>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#settingsButtonClicked" style="-fx-font-size: 16;" text="⚙">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="37.0" prefWidth="35.0" style="-fx-font-size: 16;" text="🚪">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>
